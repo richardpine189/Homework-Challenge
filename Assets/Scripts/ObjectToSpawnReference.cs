@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ObjectToSpawnReference", menuName = "SpawnerReference/ObjectToSpawnReference")]
@@ -15,17 +16,14 @@ public class ObjectToSpawnReference : ScriptableObject
 #if UNITY_EDITOR
     [SerializeField] private GameObject prefabReference;
 
-    public GameObject PrefabReference
-    {
-        get => prefabReference;
-        set
-        {
-            prefabReference = value;
-            UpdateReferenceData();
-        }
-    }
+    public GameObject PrefabReference => prefabReference;
 
-    [ContextMenu("UpdateReferenceData")]
+    private void OnValidate()
+    {
+        UpdateReferenceData(); // Automatic way when you drag a new object in the inspector.
+    }
+    
+    [ContextMenu("UpdateReferenceData")] // Add a context menu button if you would like to do manually.
     public void UpdateReferenceData()
     {
         if (prefabReference != null)

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5272e383c14e6b7449d71295e06139e7, type: 3}
   m_Name: Cube
   m_EditorClassIdentifier: 
-  assetGuid: 
-  assetPath: 
-  assetName: 
-  prefabReference: {fileID: 0}
+  assetGuid: a38f70aab91a4ca4881e6f716d1feb26
+  assetPath: Assets/Content/Prefab/Cubew.prefab
+  assetName: Cubew
+  prefabReference: {fileID: 626429534399033385, guid: a38f70aab91a4ca4881e6f716d1feb26, type: 3}

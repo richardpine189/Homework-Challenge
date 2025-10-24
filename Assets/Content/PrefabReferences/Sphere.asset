@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5272e383c14e6b7449d71295e06139e7, type: 3}
   m_Name: Sphere
   m_EditorClassIdentifier: 
-  assetGuid: 
-  assetPath: 
-  assetName: 
-  prefabReference: {fileID: 0}
+  assetGuid: 7a10df554a5956e4982f3bd593866931
+  assetPath: Assets/Content/Prefab/Sphere.prefab
+  assetName: Sphere
+  prefabReference: {fileID: 398659797849121103, guid: 7a10df554a5956e4982f3bd593866931, type: 3}
