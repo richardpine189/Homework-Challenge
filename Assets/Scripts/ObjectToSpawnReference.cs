@@ -4,8 +4,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ObjectToSpawnReference", menuName = "SpawnerReference/ObjectToSpawnReference")]
 public class ObjectToSpawnReference : ScriptableObject
 {
-    
-
     [SerializeField] private string assetGuid;
     [SerializeField] private string assetPath;
     [SerializeField] private string assetName;

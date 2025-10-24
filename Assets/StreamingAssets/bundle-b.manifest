@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
 UnityVersion: 6000.0.60f1
-CRC: 2195480897
+CRC: 3484314255
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: bd573a7138d17803bb9ba41d48089903
+    Hash: 563b8d11336f28fadad96a1b229cd87f
   TypeTreeHash:
     serializedVersion: 2
-    Hash: eb343b9bc8e27ddd344a24351eabf702
+    Hash: ec067951f625740379543254eef45292
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: b88a5d82397697994deec71b6b1c2f57
+    Hash: 2713bccb5ddf3d1f7b7b24d60f853be0
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -27,9 +27,16 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 135
+  Script: {instanceID: 0}
 - Class: 136
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/Content/Prefab/Cylinder.prefab
+- Assets/Content/Prefab/Bundle B/Cube B.prefab
+- Assets/Content/Prefab/Bundle B/Cylinder B.prefab
+- Assets/Content/Prefab/Bundle B/Capsule B.prefab
+- Assets/Content/Prefab/Bundle B/Sphere B.prefab
 Dependencies: []

@@ -1,4 +1,4 @@
-#if UNITY_EDITOR
+/*#if UNITY_EDITOR
 using UnityEngine;
 using UnityEditor;
 
@@ -61,3 +61,4 @@ public class AssetBundleReferenceEditor : Editor
     }
 }
 #endif
+*/

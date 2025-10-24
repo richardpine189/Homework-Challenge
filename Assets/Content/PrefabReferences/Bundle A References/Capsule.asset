@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5272e383c14e6b7449d71295e06139e7, type: 3}
-  m_Name: Cube
+  m_Name: Capsule
   m_EditorClassIdentifier: 
-  assetGuid: a38f70aab91a4ca4881e6f716d1feb26
-  assetPath: Assets/Content/Prefab/Cubew.prefab
-  assetName: Cubew
-  prefabReference: {fileID: 626429534399033385, guid: a38f70aab91a4ca4881e6f716d1feb26, type: 3}
+  assetGuid: dd75cbc5a7bbe3246822f9e525de2223
+  assetPath: Assets/Content/Prefab/Bundle A/Capsule A.prefab
+  assetName: Capsule A
+  prefabReference: {fileID: 6756662031533913253, guid: dd75cbc5a7bbe3246822f9e525de2223, type: 3}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5272e383c14e6b7449d71295e06139e7, type: 3}
   m_Name: Cylinder
   m_EditorClassIdentifier: 
-  assetGuid: 292b69af248824844b6063ac697c4a36
-  assetPath: Assets/Content/Prefab/Cylinder.prefab
-  assetName: Cylinder
-  prefabReference: {fileID: 4212910078162525993, guid: 292b69af248824844b6063ac697c4a36, type: 3}
+  assetGuid: e5f35480ef7950a41a2b56aa1c147988
+  assetPath: Assets/Content/Prefab/Bundle B/Cylinder B.prefab
+  assetName: Cylinder B
+  prefabReference: {fileID: 4212910078162525993, guid: e5f35480ef7950a41a2b56aa1c147988, type: 3}

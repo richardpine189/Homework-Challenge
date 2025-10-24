@@ -3,8 +3,11 @@ using System.Collections.Generic;
 
 public class AssetBundleManager : MonoBehaviour
 {
-    private static AssetBundleManager instance;
+    [SerializeField] string assetBundleNameToUse;
     private Dictionary<string, AssetBundle> loadedBundles = new ();
+    
+    #region Singleton declaration
+    private static AssetBundleManager instance;
     
     public static AssetBundleManager Instance
     {
@@ -32,7 +35,7 @@ public class AssetBundleManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
+    #endregion
     public GameObject LoadPrefab(ObjectToSpawnReference reference)
     {
         if (reference == null || string.IsNullOrEmpty(reference.AssetGuid))
@@ -42,9 +45,9 @@ public class AssetBundleManager : MonoBehaviour
         }
         
         // Load the AssetBundle if is not
-        if (!loadedBundles.ContainsKey("prefabs"))
+        if (!loadedBundles.ContainsKey(assetBundleNameToUse))
         {
-            string bundlePath = System.IO.Path.Combine(Application.streamingAssetsPath, "prefabs");
+            string bundlePath = System.IO.Path.Combine(Application.streamingAssetsPath, assetBundleNameToUse);
             AssetBundle bundle = AssetBundle.LoadFromFile(bundlePath);
             
             if (bundle == null)
@@ -53,11 +56,11 @@ public class AssetBundleManager : MonoBehaviour
                 return null;
             }
             
-            loadedBundles["prefabs"] = bundle;
+            loadedBundles[assetBundleNameToUse] = bundle;
         }
         
         // Loaf the prefab from the bundle
-        AssetBundle loadedBundle = loadedBundles["prefabs"];
+        AssetBundle loadedBundle = loadedBundles[assetBundleNameToUse];
         GameObject prefab = loadedBundle.LoadAsset<GameObject>(reference.AssetName);
         
         if (prefab == null)
