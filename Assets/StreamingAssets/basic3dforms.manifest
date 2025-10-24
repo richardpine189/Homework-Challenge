@@ -1,0 +1,41 @@
+ManifestFileVersion: 0
+UnityVersion: 6000.0.60f1
+CRC: 2334542888
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: bba7183d74488bc066a27a9e7205b3a9
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ec067951f625740379543254eef45292
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 2c1e414590547539ae1de38823f8f7cd
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 135
+  Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Content/Prefab/Capsulee.prefab
+- Assets/Content/Prefab/Cube.prefab
+- Assets/Content/Prefab/Sphere.prefab
+Dependencies: []
