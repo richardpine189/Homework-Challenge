@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a07e2125da37b0a46b7376392d555c32, type: 3}
+  m_Name: ObjectToSpawnReference
+  m_EditorClassIdentifier: 
+  assetBundleNameToCreate: MyNewAssetBundleGroup
+  assetBundleVariantNameToCreate: VariantA
+  objectsToSpawnReference:
+  - {fileID: 6756662031533913253, guid: dd75cbc5a7bbe3246822f9e525de2223, type: 3}
+  - {fileID: 626429534399033385, guid: a38f70aab91a4ca4881e6f716d1feb26, type: 3}
+  - {fileID: 4212910078162525993, guid: 292b69af248824844b6063ac697c4a36, type: 3}
+  - {fileID: 398659797849121103, guid: 7a10df554a5956e4982f3bd593866931, type: 3}
+  objectReferencesData:
+  - assetGuid: dd75cbc5a7bbe3246822f9e525de2223
+    assetPath: Assets/Content/Prefab/Bundle A/Capsule A.prefab
+    assetName: Capsule A
+  - assetGuid: a38f70aab91a4ca4881e6f716d1feb26
+    assetPath: Assets/Content/Prefab/Bundle A/Cube A.prefab
+    assetName: Cube A
+  - assetGuid: 292b69af248824844b6063ac697c4a36
+    assetPath: Assets/Content/Prefab/Bundle A/Cylinder A.prefab
+    assetName: Cylinder A
+  - assetGuid: 7a10df554a5956e4982f3bd593866931
+    assetPath: Assets/Content/Prefab/Bundle A/Sphere A.prefab
+    assetName: Sphere A
