@@ -3,11 +3,11 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public ObjectToSpawnReference objectToSpawnReference; 
-    void Start()
+    async void Start()
     {
         if (objectToSpawnReference != null)
         {
-            GameObject prefab = AssetBundleManager.Instance.LoadPrefab(objectToSpawnReference);
+            GameObject prefab = await AssetBundleManager.Instance.TryLoadPrefabAsync(objectToSpawnReference) ;
             
             if (prefab != null)
             {

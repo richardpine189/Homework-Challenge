@@ -517,6 +517,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   assetBundleNameToUse: bundle-b
+  assetBundleSourceLocation: 0
+  url: https://drive.usercontent.google.com/u/0/uc?id=1PFU7ZF8krkFLhVsV5S8Wzj4bIQPliQwq&export=download
 --- !u!4 &1153502492
 Transform:
   m_ObjectHideFlags: 0
