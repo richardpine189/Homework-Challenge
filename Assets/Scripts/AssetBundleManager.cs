@@ -1,12 +1,13 @@
 using UnityEngine;
-using System.Collections.Generic;
+using System.Threading.Tasks;
 
 public class AssetBundleManager : MonoBehaviour
 {
     [SerializeField] private string assetBundleNameToUse;
     [SerializeField] private AssetBundleSourceLocation assetBundleSourceLocation;
+    [SerializeField] private string url = "https://drive.usercontent.google.com/u/0/uc?id=1PFU7ZF8krkFLhVsV5S8Wzj4bIQPliQwq&export=download";
     
-    private Dictionary<string, AssetBundle> loadedBundles = new ();
+    
     private IAssetBundleLoader assetBundleLoader;
     #region Singleton declaration
     private static AssetBundleManager instance;
@@ -42,6 +43,7 @@ public class AssetBundleManager : MonoBehaviour
     {
         InitializeSingleton();
         SetAssetBundleLoaderLocation();
+        InitializeAssetBundle(assetBundleLoader);
     }
 
     private void SetAssetBundleLoaderLocation()
@@ -49,84 +51,40 @@ public class AssetBundleManager : MonoBehaviour
         switch (assetBundleSourceLocation)
         {
             case AssetBundleSourceLocation.Local:
-                assetBundleLoader = new AssetBundleLocalLoader();
+                assetBundleLoader = new AssetBundleLocalLoader(assetBundleNameToUse);
                 break;
             case AssetBundleSourceLocation.Server:
-                assetBundleLoader = new AssetBundleServerLoader();
+                assetBundleLoader = new AssetBundleServerLoader(assetBundleNameToUse, url);
                 break;
         }
     }
+    
+    private void InitializeAssetBundle(IAssetBundleLoader loader)
+    {
+        loader.LoadAssetBundleAsync();
+    }
 
-    public GameObject LoadPrefab(ObjectToSpawnReference reference)
+    public async Task<GameObject> TryLoadPrefabAsync(ObjectToSpawnReference reference)
+    {
+        if (!CheckForHealthyReference(reference))
+            return null;
+        
+        await assetBundleLoader.LoadAssetBundleAsync();
+        return assetBundleLoader.PrefabFromAssetBundle(reference);
+    }
+    
+    private bool CheckForHealthyReference(ObjectToSpawnReference reference)
     {
         if (reference == null || string.IsNullOrEmpty(reference.AssetGuid))
         {
             Debug.LogError("Invalid AssetBundleReference");
-            return null;
+            return false;
         }
-        
-        // Load the AssetBundle if is not
-        if (!loadedBundles.ContainsKey(assetBundleNameToUse))
-        {
-            string bundlePath = System.IO.Path.Combine(Application.streamingAssetsPath, assetBundleNameToUse);
-            AssetBundle bundle = AssetBundle.LoadFromFile(bundlePath);
-            
-            if (bundle == null)
-            {
-                Debug.LogError($"Failed to load AssetBundle from {bundlePath}");
-                return null;
-            }
-            
-            loadedBundles[assetBundleNameToUse] = bundle;
-        }
-        
-        // Loaf the prefab from the bundle
-        AssetBundle loadedBundle = loadedBundles[assetBundleNameToUse];
-        GameObject prefab = loadedBundle.LoadAsset<GameObject>(reference.AssetName);
-        
-        if (prefab == null)
-        {
-            Debug.LogError($"Failed to load prefab {reference.AssetName} from bundle");
-        }
-        
-        return prefab;
+        return true;
     }
     
     private void OnDestroy()
     {
-        foreach (var bundle in loadedBundles.Values)
-        {
-            if (bundle != null)
-            {
-                bundle.Unload(false);
-            }
-        }
-        loadedBundles.Clear();
+        assetBundleLoader.Dispose();
     }
-}
-
-public enum AssetBundleSourceLocation
-{
-    Local,
-    Server
-}
-
-public class AssetBundleLocalLoader : IAssetBundleLoader
-{
-    public void LoadAssetBundle()
-    {
-        
-    }
-}
-
-public class AssetBundleServerLoader : IAssetBundleLoader
-{
-    public void LoadAssetBundle()
-    {
-        
-    }
-}
-public interface IAssetBundleLoader
-{
-    public void LoadAssetBundle();
 }

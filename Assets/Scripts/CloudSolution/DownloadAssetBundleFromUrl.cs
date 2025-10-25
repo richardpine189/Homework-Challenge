@@ -32,7 +32,6 @@ public class DownloadAssetBundleFromUrl : MonoBehaviour
                 yield return new WaitForEndOfFrame();
                 
             }
-            www.Dispose();
             InstantiateGameObjectFromAssetBundle(go);
         }
     }
