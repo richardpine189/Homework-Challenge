@@ -1,12 +1,15 @@
 ManifestFileVersion: 0
 UnityVersion: 6000.0.60f1
-CRC: 2214581016
+CRC: 2553155181
 HashAppended: 0
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: bundle-a
+      Name: bundle-b
       Dependencies: {}
     Info_1:
-      Name: bundle-b
+      Name: mynewassetbundlegroup.varianta
+      Dependencies: {}
+    Info_2:
+      Name: bundle-c
       Dependencies: {}

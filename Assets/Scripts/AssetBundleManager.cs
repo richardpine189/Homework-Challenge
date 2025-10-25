@@ -3,9 +3,11 @@ using System.Collections.Generic;
 
 public class AssetBundleManager : MonoBehaviour
 {
-    [SerializeField] string assetBundleNameToUse;
-    private Dictionary<string, AssetBundle> loadedBundles = new ();
+    [SerializeField] private string assetBundleNameToUse;
+    [SerializeField] private AssetBundleSourceLocation assetBundleSourceLocation;
     
+    private Dictionary<string, AssetBundle> loadedBundles = new ();
+    private IAssetBundleLoader assetBundleLoader;
     #region Singleton declaration
     private static AssetBundleManager instance;
     
@@ -22,8 +24,7 @@ public class AssetBundleManager : MonoBehaviour
             return instance;
         }
     }
-    
-    private void Awake()
+    private void InitializeSingleton()
     {
         if (instance == null)
         {
@@ -35,7 +36,27 @@ public class AssetBundleManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    #endregion
+    #endregion  
+    
+    private void Awake()
+    {
+        InitializeSingleton();
+        SetAssetBundleLoaderLocation();
+    }
+
+    private void SetAssetBundleLoaderLocation()
+    {
+        switch (assetBundleSourceLocation)
+        {
+            case AssetBundleSourceLocation.Local:
+                assetBundleLoader = new AssetBundleLocalLoader();
+                break;
+            case AssetBundleSourceLocation.Server:
+                assetBundleLoader = new AssetBundleServerLoader();
+                break;
+        }
+    }
+
     public GameObject LoadPrefab(ObjectToSpawnReference reference)
     {
         if (reference == null || string.IsNullOrEmpty(reference.AssetGuid))
@@ -82,4 +103,30 @@ public class AssetBundleManager : MonoBehaviour
         }
         loadedBundles.Clear();
     }
+}
+
+public enum AssetBundleSourceLocation
+{
+    Local,
+    Server
+}
+
+public class AssetBundleLocalLoader : IAssetBundleLoader
+{
+    public void LoadAssetBundle()
+    {
+        
+    }
+}
+
+public class AssetBundleServerLoader : IAssetBundleLoader
+{
+    public void LoadAssetBundle()
+    {
+        
+    }
+}
+public interface IAssetBundleLoader
+{
+    public void LoadAssetBundle();
 }
